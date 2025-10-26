@@ -5,6 +5,14 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     
+    // Basic input validation
+    if (!body || typeof body !== 'object') {
+      return NextResponse.json(
+        { error: 'Invalid request body' },
+        { status: 400 }
+      );
+    }
+    
     const { data, error } = await supabase
       .from('words')
       .insert([body])
@@ -14,6 +22,13 @@ export async function POST(request: NextRequest) {
       console.error('Error inserting word:', error);
       return NextResponse.json(
         { error: 'Failed to create word' },
+        { status: 500 }
+      );
+    }
+
+    if (!data || data.length === 0) {
+      return NextResponse.json(
+        { error: 'Failed to create word - no data returned' },
         { status: 500 }
       );
     }
