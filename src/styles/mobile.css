@@ -1,0 +1,85 @@
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  /* Typography */
+  body {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.25rem !important;
+  }
+  
+  h3 {
+    font-size: 1.1rem !important;
+  }
+  
+  /* Spacing */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Cards */
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  /* Buttons */
+  button {
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Forms */
+  input, textarea, select {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    min-height: 44px;
+  }
+  
+  /* Tables */
+  table {
+    font-size: 0.875rem;
+  }
+  
+  /* Navigation */
+  nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Hide on mobile */
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  /* Show only on mobile */
+  .show-mobile {
+    display: block !important;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+/* Touch targets */
+@media (hover: none) and (pointer: coarse) {
+  button, a, input[type="button"], input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .landscape-hide {
+    display: none !important;
+  }
+}

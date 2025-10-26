@@ -1,0 +1,36 @@
+{
+  "name": "LexHub - Svenska Bro Aktiebolag",
+  "short_name": "LexHub",
+  "description": "Fältrapportering och trafikvarningar för Svenska Bro Aktiebolag",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0C0C0C",
+  "theme_color": "#E76F51",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "lang": "sv-SE",
+  "dir": "ltr",
+  "shortcuts": [
+    {
+      "name": "Trafikvarningar",
+      "short_name": "Trafik",
+      "description": "Visa aktiva trafikvarningar",
+      "url": "/traffic-alerts",
+      "icons": [{ "src": "/favicon.ico", "sizes": "96x96" }]
+    },
+    {
+      "name": "Nytt Jobb",
+      "short_name": "Jobb",
+      "description": "Starta nytt jobb",
+      "url": "/new-job",
+      "icons": [{ "src": "/favicon.ico", "sizes": "96x96" }]
+    }
+  ]
+}

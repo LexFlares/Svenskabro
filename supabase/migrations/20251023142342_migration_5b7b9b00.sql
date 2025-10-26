@@ -1,0 +1,1 @@
+ALTER TABLE jobs ADD COLUMN other_job_description TEXT;
