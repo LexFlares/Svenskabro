@@ -21,15 +21,26 @@ import {
 } from "@/components/ui/sidebar";
 import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
 import { useIsMobile } from "@/hooks/useMobile";
-import { LayoutDashboard, LogOut, PanelLeft, Users } from "lucide-react";
+import { LayoutDashboard, LogOut, PanelLeft, Users, Construction, Briefcase, FileText, MessageSquare, AlertTriangle, FolderOpen, AlertCircle, Bot, Settings as SettingsIcon, Shield } from "lucide-react";
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from './DashboardLayoutSkeleton';
 import { Button } from "./ui/button";
 
 const menuItems = [
-  { icon: LayoutDashboard, label: "Page 1", path: "/" },
-  { icon: Users, label: "Page 2", path: "/some-path" },
+  { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
+  { icon: Construction, label: "Broregister", path: "/bridges" },
+  { icon: Briefcase, label: "Nytt Jobb", path: "/new-job" },
+  { icon: FileText, label: "Journal", path: "/journal" },
+  { icon: Users, label: "Kontakter", path: "/contacts" },
+  { icon: Users, label: "Arbetsgrupper", path: "/work-groups" },
+  { icon: MessageSquare, label: "LexChat", path: "/chat" },
+  { icon: AlertTriangle, label: "Trafikvarningar", path: "/traffic" },
+  { icon: FolderOpen, label: "Dokument", path: "/documents" },
+  { icon: AlertCircle, label: "Avvikelser", path: "/deviations" },
+  { icon: Bot, label: "AI Assistent", path: "/ai-assistant" },
+  { icon: Shield, label: "Admin Panel", path: "/admin", adminOnly: true },
+  { icon: SettingsIcon, label: "Inställningar", path: "/settings" },
 ];
 
 const SIDEBAR_WIDTH_KEY = "sidebar-width";
@@ -121,7 +132,11 @@ function DashboardLayoutContent({
   const isCollapsed = state === "collapsed";
   const [isResizing, setIsResizing] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
-  const activeMenuItem = menuItems.find(item => item.path === location);
+  const filteredMenuItems = menuItems.filter(item => {
+    if ((item as any).adminOnly && user?.role !== 'admin') return false;
+    return true;
+  });
+  const activeMenuItem = filteredMenuItems.find(item => item.path === location);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -209,7 +224,7 @@ function DashboardLayoutContent({
 
           <SidebarContent className="gap-0">
             <SidebarMenu className="px-2 py-1">
-              {menuItems.map(item => {
+              {filteredMenuItems.map(item => {
                 const isActive = location === item.path;
                 return (
                   <SidebarMenuItem key={item.path}>
