@@ -1,5 +1,5 @@
 import { useAuth } from "@/_core/hooks/useAuth";
-import { APP_LOGO, APP_TITLE } from "@/const";
+import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { Loader2, Construction, Briefcase, MessageSquare, Shield, CheckCircle } from "lucide-react";
@@ -86,7 +86,7 @@ export default function Home() {
 
                 {/* Login Button */}
                 <a
-                  href="/api/oauth/callback"
+                  href={getLoginUrl()}
                   className="block w-full"
                 >
                   <button className="w-full h-14 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5">

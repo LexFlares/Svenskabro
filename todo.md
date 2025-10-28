@@ -115,3 +115,9 @@
 - [x] Add "Glömt lösenord" functionality - Handled by OAuth system
 - [x] Modern login UI with gradients and animations
 
+
+
+## Phase 13: OAuth Callback Fix
+- [x] Fix login button URL - should use getLoginUrl() instead of /api/oauth/callback
+- [x] Test login flow end-to-end
+
