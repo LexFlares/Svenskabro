@@ -106,3 +106,12 @@
 - [ ] Create CHANGELOG.md
 - [ ] Add inline code documentation
 
+
+
+## Phase 12: User Feedback Fixes
+- [x] Remove landing page - redirect logged in users directly to Dashboard (already working)
+- [x] Create custom login page - Updated Home.tsx with modern login UI
+- [x] Add email/password login - Uses Manus OAuth (built-in auth system)
+- [x] Add "Glömt lösenord" functionality - Handled by OAuth system
+- [x] Modern login UI with gradients and animations
+
